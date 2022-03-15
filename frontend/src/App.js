@@ -25,7 +25,7 @@ function App() {
         <a href="/restaurants" className="navbar-brand">Restaurant Reviews</a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to={"/restaurants"} className="nav-link">
+            <Link to={"/"} className="nav-link">
               Restaurants
             </Link>
           </li>
@@ -44,7 +44,7 @@ function App() {
       </nav>
       <div className="container mt-3">
         <Routes>
-          <Route exact path={"/"} element={RestaurantsList} />
+          <Route exact path={"/"} element={<RestaurantsList restaurantsList={RestaurantsList} />} />
           {/* <Route
             path="/restaurants/:id/review"
             render={(props)=> (
