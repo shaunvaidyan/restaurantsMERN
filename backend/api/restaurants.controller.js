@@ -29,7 +29,7 @@ export default class RestaurantsController {
     }
     res.json(response)
   }
-  static async apiGetRestaurantById(req, res, next) {
+  static async apiGetRestaurantsById(req, res, next) {
     try {
       let id = req.params.id || {}
       let restaurant = await RestaurantsDAO.getRestaurantByID(id)
@@ -44,7 +44,7 @@ export default class RestaurantsController {
     }
   }
 
-  static async apiGetRestaurantCuisines(req, res, next) {
+  static async apiGetRestaurantsCuisines(req, res, next) {
     try {
       let cuisines = await RestaurantsDAO.getCuisines()
       res.json(cuisines)

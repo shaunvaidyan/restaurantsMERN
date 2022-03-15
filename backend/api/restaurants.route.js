@@ -9,7 +9,7 @@ router.route("/id/:id").get(RestaurantsController.apiGetRestaurantsById) // gets
 router.route("/cuisines").get(RestaurantsController.apiGetRestaurantsCuisines) // populates dropdown cuisine menu
 
 router
-  .route("/review")
+  .route("/review") // no get review since we'll always be getting a whole list, not a single review
   .post(ReviewsController.apiPostReview)
   .put(ReviewsController.apiUpdateReview)
   .delete(ReviewsController.apiDeleteReview)

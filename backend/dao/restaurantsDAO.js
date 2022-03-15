@@ -56,7 +56,7 @@ export default class RestaurantsDAO {
       return { restaurantsList: [], totalNumRestaurants: 0 }
     }
   }
-  static async getRestaurantByID(id) {
+  static async getRestaurantByID(id) {  // gets reviews from one collection, put it into restaurant
     try {
       const pipeline = [
         {
@@ -70,7 +70,7 @@ export default class RestaurantsDAO {
                       let: {
                           id: "$_id",
                       },
-                      pipeline: [
+                      pipeline: [  //from reviews collection creates pipeline to match restaurant ID and find those reviews, result set as reviews
                           {
                               $match: {
                                   $expr: {
@@ -100,7 +100,7 @@ export default class RestaurantsDAO {
     }
   }
 
-  static async getCuisines() {
+  static async getCuisines() { //populates cuisines array with distinct cuisines
     let cuisines = []
     try {
       cuisines = await restaurants.distinct("cuisine")
