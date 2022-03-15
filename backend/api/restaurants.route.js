@@ -5,8 +5,8 @@ import ReviewsController from "./reviews.controller.js"
 const router = express.Router()
 
 router.route("/").get(RestaurantsController.apiGetRestaurants) // gets list of all restaurants
-router.route("/id/:id").get(RestaurantsController.apiGetRestaurants) // gets list of specifc restaurant w/ specific id + reviews
-router.route("/cuisines").get(RestaurantsController.apiGetRestaurants) // populates dropdown cuisine menu
+router.route("/id/:id").get(RestaurantsController.apiGetRestaurantsById) // gets list of specifc restaurant w/ specific id + reviews
+router.route("/cuisines").get(RestaurantsController.apiGetRestaurantsCuisines) // populates dropdown cuisine menu
 
 router
   .route("/review")
