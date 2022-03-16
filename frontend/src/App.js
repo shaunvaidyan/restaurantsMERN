@@ -45,18 +45,15 @@ function App() {
       <div className="container mt-3">
         <Routes>
           <Route exact path={"/"} element={<RestaurantsList restaurantsList={RestaurantsList} />} />
-          {/* <Route
+          <Route exact path={"/restaurants"} element={<RestaurantsList restaurantsList={RestaurantsList} />} />
+          <Route 
             path="/restaurants/:id/review"
-            render={(props)=> (
-              <AddReview {...props} user={user} />
-            )}
+            element = { <AddReview user={user} /> }
           />
           <Route 
             path="/restaurants/:id"
-            render={(props) => (
-              <Restaurant {...props} user={user} />
-            )}
-          /> */}
+            element = { <Restaurant user={user} /> }
+          />
           <Route 
             path="/login"
             element = { <Login login={login} /> }
