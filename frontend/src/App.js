@@ -18,7 +18,6 @@ function App() {
     setUser(null)
   }
 
-
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
