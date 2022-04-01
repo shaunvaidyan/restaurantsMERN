@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import RestaurantDataService from "../services/restaurant.js";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 const AddReview = props => {
-  let {id} = useParams();
+  let location = useLocation();
+  let { id } = useParams();
   let initialReviewState = ""
   let editing = false; // keeps track of whether this is new or editing review -- default is adding review
-
-  if (props.location.state && props.location.state.currentReview){
+  console.log(location.state);
+  if (location.state && location.state.currentReview){
     editing = true;
-    initialReviewState = props.location.state.currentReview.text
+    initialReviewState = location.state.currentReview.text
   }
 
   const [review, setReview] = useState(initialReviewState);
@@ -29,7 +30,7 @@ const AddReview = props => {
     };
 
     if (editing) {
-      data.review_id = props.location.state.currentReview._id
+      data.review_id = location.state.currentReview._id
       RestaurantDataService.updateReview(data)
         .then(response => {
           setSubmitted(true);

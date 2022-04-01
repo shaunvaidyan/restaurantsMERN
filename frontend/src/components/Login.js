@@ -19,7 +19,7 @@ const Login = props => {
 
   const login = () => {
     props.login(user)
-    navigate(-1);
+    navigate(-1); // navigates back a page
   }
   return (
     <div className="submit-form">
