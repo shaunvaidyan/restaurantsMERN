@@ -11,15 +11,15 @@ const RestaurantsList = props => {
   const [searchCuisine, setSearchCuisine] = useState("");
   const [cuisines, setCuisines] = useState(["All Cuisines"]);
 
-  useEffect(() => {  // this is how to tell react that component needs to do something after rendering
-    retrieveRestaurants();
+  useEffect(() => {  // react hook | this is how to tell react that component needs to do something after rendering
+    // retrieveRestaurants();
     retrieveCuisines();
   })
 
   const retrieveRestaurants = () => {
     RestaurantDataService.getAll()
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         setRestaurants(response.data.restaurants);
         
       })
@@ -32,7 +32,7 @@ const RestaurantsList = props => {
   const retrieveCuisines = () => {
     RestaurantDataService.getCuisines()
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         setCuisines(["All Cuisines"].concat(response.data));
         
       })
@@ -48,16 +48,19 @@ const RestaurantsList = props => {
   const onChangeSearchName = e => {
     const searchName = e.target.value;
     setSearchName(searchName);
+    e.preventDefault()
   };
 
   const onChangeSearchZip = e => {
     const searchZip = e.target.value;
     setSearchZip(searchZip);
+    e.preventDefault()
   };
 
   const onChangeSearchCuisine = e => {
     const searchCuisine = e.target.value;
     setSearchCuisine(searchCuisine);
+    e.preventDefault()
   };
 
   const find = (query, by) => {
@@ -72,7 +75,7 @@ const RestaurantsList = props => {
   };
   // called when button is clicked //
   const findByName = () => {
-    find(searchName, "name")  
+    find(searchName, "name") 
   };
 
   const findByZip = () => {
@@ -80,7 +83,7 @@ const RestaurantsList = props => {
   };
 
   const findByCuisine = () => {
-    if (searchCuisine == "All Cuisines") {
+    if (searchCuisine === "All Cuisines") {
       refreshList();
     } else {
       find(searchCuisine, "cuisine")
@@ -163,7 +166,7 @@ const RestaurantsList = props => {
                   <Link to={"/restaurants/"+restaurant._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Reviews
                   </Link>
-                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">View Map</a>
+                  <a target="_blank" rel="noopener noreferrer" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">View Map</a>
                   </div>
                 </div>
               </div>

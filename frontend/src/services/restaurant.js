@@ -1,7 +1,7 @@
 import http from "../http-common.js";
 
 class RestaurantDataService {
-    // make functions that make API calls and return info from those calls
+    // make functions that make API calls and return info from those calls. appends to baseurl from http-common.js
     getAll(page = 0){
         return http.get(`?page=${page}`);
     }
@@ -15,15 +15,15 @@ class RestaurantDataService {
     }
 
     createReview(data) {
-        return http.post("/review", data);
+        return http.post("/review-new", data);
     }
 
     updateReview(data) {
-        return http.put("/review", data);
+        return http.put("/review-edit", data);
     }
 
     deleteReview(id) {
-        return http.delete(`/review?id=${id}`);
+        return http.delete(`/review-delete?id=${id}`);
     }
 
     getCuisines(id) {
