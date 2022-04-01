@@ -19,7 +19,7 @@ const Login = props => {
 
   const login = () => {
     props.login(user)
-    navigate('/');
+    navigate(-1);
   }
   return (
     <div className="submit-form">
