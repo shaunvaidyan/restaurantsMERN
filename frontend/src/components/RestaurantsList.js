@@ -12,7 +12,6 @@ const RestaurantsList = props => {
   const [cuisines, setCuisines] = useState(["All Cuisines"]);
 
   useEffect(() => {  // react hook | this is how to tell react that component needs to do something after rendering
-    // retrieveRestaurants();
     retrieveCuisines();
   })
 
@@ -48,25 +47,27 @@ const RestaurantsList = props => {
   const onChangeSearchName = e => {
     const searchName = e.target.value;
     setSearchName(searchName);
-    e.preventDefault()
+    e.preventDefault();
   };
 
   const onChangeSearchZip = e => {
     const searchZip = e.target.value;
+    //console.log(searchZip);
     setSearchZip(searchZip);
-    e.preventDefault()
+    e.preventDefault();
   };
 
   const onChangeSearchCuisine = e => {
     const searchCuisine = e.target.value;
+    console.log(searchCuisine);
     setSearchCuisine(searchCuisine);
-    e.preventDefault()
+    e.preventDefault();
   };
 
   const find = (query, by) => {
     RestaurantDataService.find(query, by) // line 13 ../services/restaurant.js
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         setRestaurants(response.data.restaurants);
       })
       .catch(e => {
