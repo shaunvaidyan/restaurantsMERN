@@ -14,7 +14,9 @@ const RestaurantsList = props => {
   useEffect(() => {  // react hook | this is how to tell react that component needs to do something after rendering
     retrieveCuisines();
   })
-
+  useEffect(() => {  // pass in empty array to stop retrieveRestaurants from constantly overwriting changes
+    retrieveRestaurants();
+  }, [])
   const retrieveRestaurants = () => {
     RestaurantDataService.getAll()
       .then(response => {
