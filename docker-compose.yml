@@ -1,0 +1,25 @@
+version: "3.8"
+
+networks:
+  node-app:
+    driver: bridge
+
+services:
+  backend:
+    image: shaunvaidyan/mernbackend:latest
+    ports: 
+      - 5000:5000
+    volumes:
+      - '/app/node_modules'
+    networks:
+      - node-app
+  frontend:
+    image: shaunvaidyan/mernfrontend:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - '/front/node_modules'
+    networks:
+      - node-app
+volumes:
+  my-data:
