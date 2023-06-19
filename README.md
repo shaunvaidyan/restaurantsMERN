@@ -6,3 +6,6 @@ M: MongoDB
 E: Express(JS)  
 R: React  
 N: NodeJS
+
+
+Rename sample.env to .env in the backend folder and edit the variables to fit your mongodb web deployment info for your deployment
